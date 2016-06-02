@@ -1,0 +1,9 @@
+announcement:
+  $build$style[print]:
+  - .[a6paper,landscape,resize-to]
+  $style[-announcement]:
+  - .[announcement]
+  $matter:
+  - - ../Доледенок/announcement
+  - - ../Мерзон/announcement
+  - - ../Погудин/announcement

@@ -1,0 +1,44 @@
+!!omap
+
+- $large$common$timetable: true
+- $common$timetable: &common-timetable !!omap
+  - 2016-06-01: [   2]
+  - 2016-06-02: [1, 2]
+  - 2016-06-03: [1, 2]
+  - 2016-06-04: [1, 2]
+  - 2016-06-05: [1, 2]
+  - 2016-06-06: [1, 2]
+  - 2016-06-07: [1, 2]
+  - 2016-06-08: [1, 2]
+  - 2016-06-09: [    ]
+  - 2016-06-10: [1, 2]
+  - 2016-06-11: [1, 2]
+  - 2016-06-12: [1, 2]
+  - 2016-06-13: [1, 2]
+  - 2016-06-14: [    ]
+
+- $large$groups[g8r2]: true
+- $groups[g8r2]:
+    name: Гадюки
+    timetable: *common-timetable
+
+- $large$groups[g8r1]: true
+- $groups[g8r1]:
+    name: Кобры
+    timetable: *common-timetable
+
+- $large$groups[g9r3]: true
+- $groups[g9r3]:
+    name: Ужи
+    timetable: *common-timetable
+
+- $large$groups[g9r2]: true
+- $groups[g9r2]:
+    name: Удавы
+    timetable: *common-timetable
+
+- $large$groups[g9r1]: true
+- $groups[g9r1]:
+    name: Питоны
+    timetable: *common-timetable
+
