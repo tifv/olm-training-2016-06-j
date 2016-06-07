@@ -1,0 +1,18 @@
+announcement:
+  $date: 5--8 июня 2016
+  $authors:
+  - Юлий Васильевич Тихонов
+
+  $style[-announcement]:
+  - .[announcement]
+
+  $build$style[print]:
+  - .[a6paper,landscape,2-on-1]
+  $build$matter[print]:
+  - - .
+  - - preamble package: verbatim
+    - verbatim: \begingroup\let\input\verbatiminput
+    - verbatim: \fontsize{8.05}{9.66}\selectfont
+    - .[no-header]
+    - verbatim: \endgroup
+
