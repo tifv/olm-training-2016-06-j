@@ -413,6 +413,8 @@ text-config:
         - vargreek-shape=unicode
       - delegate: setfont
       - verbatim: \AtBeginDocument{\let\setminus\smallsetminus}
+      - verbatim: # {{{
+          \AtBeginDocument{\def\kratno{\mathrel{\threedotcolon}}}
 
       setfont: # {{{
 

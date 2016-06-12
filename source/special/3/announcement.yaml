@@ -1,0 +1,10 @@
+announcement:
+  $build$style[print]:
+  - .[resize-to]
+  $style[-announcement]:
+  - .[announcement]
+  $matter:
+  - - ../Дубровский/announcement
+  - - ../Клягина/announcement
+  - - ../Мощевитин/announcement
+  - - ../Нилов/announcement
