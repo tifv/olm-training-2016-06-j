@@ -11,7 +11,7 @@ announcement:
   $build$matter[print]:
   - - .
   - - preamble package: verbatim
-    - verbatim: \begingroup\let\input\verbatiminput
+    - verbatim: \begingroup \let\input\verbatiminput \let\section\worksheet
     - verbatim: \fontsize{8.05}{9.66}\selectfont
     - .[no-header]
     - verbatim: \endgroup

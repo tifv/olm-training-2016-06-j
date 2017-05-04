@@ -42,7 +42,7 @@ Integral:
 
   g8r2:
     $matter:
-    - verbatim: \chapter{8-2}
+    - verbatim: \chapter{Гадюки (8-2)}
       condition: {not: no-chapter}
     - verbatim: \begin{jeolmlabelspace}{g8r2}
     - delegate: /[g8r2]
@@ -50,7 +50,7 @@ Integral:
 
   g8r1:
     $matter:
-    - verbatim: \chapter{8-1}
+    - verbatim: \chapter{Кобры (8-1)}
       condition: {not: no-chapter}
     - verbatim: \begin{jeolmlabelspace}{g8r1}
     - delegate: /[g8r1]
@@ -58,7 +58,7 @@ Integral:
 
   g9r3:
     $matter:
-    - verbatim: \chapter{9-3}
+    - verbatim: \chapter{Ужи (9-3)}
       condition: {not: no-chapter}
     - verbatim: \begin{jeolmlabelspace}{g9r3}
     - delegate: /[g9r3]
@@ -66,7 +66,7 @@ Integral:
 
   g9r2:
     $matter:
-    - verbatim: \chapter{9-2}
+    - verbatim: \chapter{Удавы (9-2)}
       condition: {not: no-chapter}
     - verbatim: \begin{jeolmlabelspace}{g9r2}
     - delegate: /[g9r2]
@@ -74,7 +74,7 @@ Integral:
 
   g9r1:
     $matter:
-    - verbatim: \chapter{9-1}
+    - verbatim: \chapter{Питоны (9-1)}
       condition: {not: no-chapter}
     - verbatim: \begin{jeolmlabelspace}{g9r1}
     - delegate: /[g9r1]

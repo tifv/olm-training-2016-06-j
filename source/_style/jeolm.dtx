@@ -188,8 +188,8 @@
 \newcommand\@kratno@template[2]{\setlength{\@kratno@height}{#2pt}%
 \mathrel{%
     \rlap{\raisebox{-0.25\@kratno@height}{$\mathsurround=0pt#1\cdot$}}%
-    \rlap{\raisebox{ 0.00\@kratno@height}{$\mathsurround=0pt#1\cdot$}}%
-          \raisebox{ 0.25\@kratno@height}{$\mathsurround=0pt#1\cdot$}%
+    \rlap{\raisebox{ 0.05\@kratno@height}{$\mathsurround=0pt#1\cdot$}}%
+          \raisebox{ 0.35\@kratno@height}{$\mathsurround=0pt#1\cdot$}%
     }}
 \newcommand\kratno{\mathchoice%
     {\@kratno@template{\displaystyle}{\tf@size}}%
@@ -313,7 +313,8 @@
 %    \begin{macrocode}
 \else
     \newcommand\jeolmfigure[2][]{%
-        \includegraphics[#1]{\csname jeolmfiguremap@#2\endcsname}}
+        \edef\jeolmfigure@name{\csname jeolmfiguremap@#2\endcsname}%
+        \includegraphics[#1]{\jeolmfigure@name}}
 \fi
 %    \end{macrocode}
 % \end{macro}
@@ -323,6 +324,7 @@
 % \begin{macro}{\jeolmlabel}
 % \begin{macro}{\jeolmref}
 % \begin{macro}{\jeolmeqref}
+% \begin{macro}{\jeolmsubref}
 % \begin{environment}{jeolmlabelspace}
 % Redirect labels, allowing multiple inclusion of source files (provided that
 % these files use |\jeolmlabel| and |\jeolmref| instead of normal commands).
@@ -330,13 +332,17 @@
 \newcommand\jeolmlabel[1]{\label{#1}}
 \newcommand\jeolmref[1]{\ref{#1}}
 \newcommand\jeolmeqref[1]{\eqref{#1}}
+\newcommand\jeolmsubref[1]{\subref{#1}}
 \newenvironment{jeolmlabelspace}[1]{%
     \renewcommand\jeolmlabel[1]{\label{#1:##1}}%
     \renewcommand\jeolmref[1]{\ref{#1:##1}}%
     \renewcommand\jeolmeqref[1]{\eqref{#1:##1}}%
+    \renewcommand\jeolmsubref[1]{\subref{#1:##1}}%
 }{}
 %    \end{macrocode}
 % \end{environment}
+% \end{macro}
+% \end{macro}
 % \end{macro}
 % \end{macro}
 %
@@ -359,12 +365,24 @@
         \fi%
         \hfill\null\\\rule[1ex]{\textwidth}{0.5pt}\linebreak[0]%
     \endgroup%
-    \@nobreaktrue
+    \@nobreaktrue\par
 }
 \newcommand\jeolminstitution{Wherever}
 \newcommand\jeolmgroup{Whatever}
 \newcommand\jeolmdaterange{Whenever}
 \let\jeolmdate\relax
+\newskip\worksheet@afterskip
+\worksheet@afterskip 2.3ex \@plus.2ex
+\newcommand\worksheet{
+    \if@nobreak\vskip-\worksheet@afterskip\fi
+    \@startsection%
+        {section}%                          name
+        {1}%                                level
+        {\z@}%                              indent
+        {3.5ex \@plus 1ex \@minus .2ex}%    beforeskip
+        {\worksheet@afterskip}%             afterskip
+        {\normalfont\Large\bfseries}%       style
+}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -610,6 +628,41 @@
 %    \begin{macrocode}
 %</package>
 %    \end{macrocode}
+%
+% \subsection{Tinkering with equations}
+%
+% \begin{environment}{problemeq}
+% \begin{environment}{problemeq*}
+% \begin{environment}{subproblemeq}
+% \begin{environment}{subproblemeq*}
+%    \begin{macrocode}
+\newsavebox\problemequation
+\newlength\problemeq@skip
+\problemeq@skip=0.5ex
+\newlength\problemeq@height
+\newlength\problemeq@depth
+\newcommand\problemeq@usebox[1]{%
+    \settoheight{\problemeq@height}{\usebox#1}%
+    \addtolength{\problemeq@height}{\problemeq@skip}%
+    \settodepth{\problemeq@depth}{\usebox#1}%
+    \addtolength{\problemeq@depth}{\problemeq@skip}%
+    \raisebox{0pt}[\problemeq@height][\problemeq@depth]{\usebox#1}%
+}
+\newenvironment{problemeq}
+    {\parskip=0pt\par%
+        \begin{lrbox}{\problemequation}\(\displaystyle}
+    {\)\end{lrbox}\problemeq@usebox\problemequation\thinspace}
+\newenvironment{problemeq*}{\thinspace\(}{\)\thinspace}
+\newenvironment{subproblemeq}
+    {\parskip=0pt\par\subproblem%
+        \begin{lrbox}{\problemequation}\(\displaystyle}
+    {\)\end{lrbox}\problemeq@usebox\problemequation\thinspace}
+\newenvironment{subproblemeq*}{\subproblem\(}{\)\thinspace}
+%    \end{macrocode}
+% \end{environment}
+% \end{environment}
+% \end{environment}
+% \end{environment}
 %
 % \Finale
 %
