@@ -1,10 +1,13 @@
 !!omap
 
-- olympiad:
+- $groups$matter$order: default
 
-- algebra:
-- geometry:
-- combinatorics:
+- olympiad: &by-date
+    $groups$matter$order: date
+
+- algebra: *by-date
+- geometry: *by-date
+- combinatorics: *by-date
 
 - special:
 

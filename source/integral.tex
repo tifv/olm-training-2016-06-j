@@ -17,22 +17,20 @@
 \providecommand\ifsourcelinks{\iffalse}
 \providecommand\url{\texttt}
 
-\strut
-
+\leavevmode\par
 \vfill
-
 \begin{center}
-\scalebox{2}{\(\displaystyle
-\int\limits_{\text{DD mmmm YYYY}}^{\text{DD mmmm YYYY}}
-    \dbinom{\;\text{Московские сборы}\;}{\;\text{секция математики}\;}
+\newbox\titlebox
+\begin{lrbox}{\titlebox} \( \displaystyle
+    \int\limits_{\text{01 июня 2016\,г.}}^{\text{14 июня 2016 г.}}
+        \dbinom
+            {\;\text{Московские сборы}\;}
+            {\;\text{секция математики}\;}
     \, \mathrm{d} t
-\)}
-\end{center}
-
+\) \end{lrbox}
+\resizebox{\textwidth}{!}{\usebox{\titlebox}}
+\end{center}\par
 \vfill
-
-\strut
-
 \clearpage
 
 
